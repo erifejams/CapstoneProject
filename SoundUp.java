@@ -1,4 +1,4 @@
-
+// Main method
 
 public class SoundUp {
     public static void main(String[] args){
