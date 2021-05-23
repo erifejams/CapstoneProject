@@ -1,3 +1,5 @@
+import java.util.Random;
+
 // package SoundUp;
 
 public class User{
@@ -7,12 +9,12 @@ public class User{
     public User (String name)
     {
         this.name = name;
-        bpm = generatesBpm();
+        bpm = createBpm();
     }
 
     public User()
     {
-        User( "no name", 0) ;
+        User user = new User( "no name") ;
     }
 
     //generates the bpm of the user when he starts the run
@@ -35,7 +37,7 @@ public class User{
 
         randomRateOfChange = lowerBound +random.nextInt(upperBound - lowerBound); // generates a bpm 
         
-        return randomBpm;
+        return randomRateOfChange;
     }
 
     public void displayBpm()
