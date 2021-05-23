@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package soundup;
+//package SoundUp;
 
 /**
  *
@@ -11,7 +11,9 @@ package soundup;
  */
 public class SoundUp {
     public static void main(String[] args) {
-        
+        //SET UP OF THE USER
+
+        //
     }
     
 }
