@@ -2,8 +2,8 @@
 
 public class SoundUp {
     public static void main(String[] args){
-         System.out.println("hola");
-         //displayBpm();
+         User charlotte = new User ("Charlotte");
+         charlotte.displayBpm();
     }
     
 }

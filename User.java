@@ -42,7 +42,7 @@ public class User{
 
     public void displayBpm()
     {
-        System.out.println("hello");
+        System.out.println("Bpm : " + bpm);
     }
 
     
