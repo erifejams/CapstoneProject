@@ -1,4 +1,6 @@
 // Class Music
+import java.io.*;
+import java.util.Scanner;
 
 public class Music {
     private String name;
@@ -50,5 +52,25 @@ public class Music {
     public int getBpm()
     {
         return bpm;
+    }
+
+    public void readFile()
+    {
+        try
+        {
+            File musicList = new File ("HighSales.txt");
+            Scanner input = new Scanner(musicList);
+            while(input.hasNext())
+            {
+                String nameMusic = input.nextLine();
+                String authorMusic = input.nextLine();
+                int bpmMusic = input.nextInt();
+               // Music music = new Music ();
+            }
+        }
+        catch(FileNotFoundException e )
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }
