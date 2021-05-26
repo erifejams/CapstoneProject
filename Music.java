@@ -1,12 +1,11 @@
 // Class Music
-import java.io.*;
-import java.util.Scanner;
 
 public class Music {
     private String name;
     private int bpm;
     private String author;
     private final int timing = 20;
+    
     
     
     // constructor
@@ -16,12 +15,7 @@ public class Music {
         this.name = name;
         this.bpm = bpm;
         this.author = author;
-    }
-    
-    // default constructor
-    public Music()
-    {
-        Music music = new Music("no name", 0, "no author");
+        
     }
     
     public void setName(String newName)
@@ -54,23 +48,11 @@ public class Music {
         return bpm;
     }
 
-    public void readFile()
+    public void displayMusic()
     {
-        try
-        {
-            File musicList = new File ("HighSales.txt");
-            Scanner input = new Scanner(musicList);
-            while(input.hasNext())
-            {
-                String nameMusic = input.nextLine();
-                String authorMusic = input.nextLine();
-                int bpmMusic = input.nextInt();
-               // Music music = new Music ();
-            }
-        }
-        catch(FileNotFoundException e )
-        {
-            System.out.println(e.getMessage());
-        }
+        System.out.println("name : "+ name);
+        System.out.println("bpm : "+ bpm);
+        System.out.println("author : "+ author);
     }
+    
 }
