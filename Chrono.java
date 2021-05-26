@@ -11,8 +11,6 @@ chrono.pause(); // on peut faire une pause
 chrono.resume(); // reprise du chrono
 // ...
 chrono.stop(); // arrêt
-System.out.println(chrono.getDureeMs()); // affichage du résultat en millisecondes
-System.out.println(chrono.getDureeSec()); // affichage en secondes
 System.out.println(chrono.getDureeTxt()); // affichage au format "1 h 26 min 32 s"
 */
 
@@ -20,61 +18,30 @@ public class Chrono {
 
     private long tempsDepart=0;
     private long tempsFin=0;
-    private long pauseDepart=0;
-    private long pauseFin=0;
     private long duree=0;
 
     public void start()
         {
         tempsDepart=System.currentTimeMillis();
         tempsFin=0;
-        pauseDepart=0;
-        pauseFin=0;
         duree=0;
         }
 
-    public void pause()
-        {
-        if(tempsDepart==0) {return;}
-        pauseDepart=System.currentTimeMillis();
-        }
-
-    public void resume()
-        {
-        if(tempsDepart==0) {return;}
-        if(pauseDepart==0) {return;}
-        pauseFin=System.currentTimeMillis();
-        tempsDepart=tempsDepart+pauseFin-pauseDepart;
-        tempsFin=0;
-        pauseDepart=0;
-        pauseFin=0;
-        duree=0;
-        }
-        
     public void stop()
         {
         if(tempsDepart==0) {return;}
         tempsFin=System.currentTimeMillis();
-        duree=(tempsFin-tempsDepart) - (pauseFin-pauseDepart);
+        duree=(tempsFin-tempsDepart);
         tempsDepart=0;
         tempsFin=0;
-        pauseDepart=0;
-        pauseFin=0;
-        }        
-
-    public long getDureeSec()
-        {
-        return duree/1000;
-        }
-        
-    public long getDureeMs()
-        {
-        return duree;
         }        
 
     public String getDureeTxt()
         {
-        return timeToHMS(getDureeSec());
+            tempsFin=System.currentTimeMillis();
+            duree=(tempsFin-tempsDepart);
+            duree = duree/1000;
+        return timeToHMS(duree);
         }
 
     public static String timeToHMS(long tempsS) {
@@ -88,9 +55,9 @@ public class Chrono {
 
         String r="";
 
-        if(h>0) {r+=h+" h ";}
-        if(m>0) {r+=m+" min ";}
-        if(s>0) {r+=s+" s";}
+        if(h>0) {r+=h+" j ";}
+        if(m>0) {r+=m+" h ";}
+        if(s>0) {r+=s+" min";}
         if(h<=0 && m<=0 && s<=0) {r="0 s";}
 
         return r;

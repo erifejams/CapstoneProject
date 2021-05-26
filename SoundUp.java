@@ -41,6 +41,28 @@ public class SoundUp {
             musicArray.get(i).displayMusic();
         }
 
+        Chrono chrono = new Chrono();
+        chrono.start(); // démarrage du chrono
+        try
+            {
+                Thread.sleep(2000);
+            }
+            catch(InterruptedException ie)
+            {
+                System.out.println(ie.getMessage());
+            }
+        
+        System.out.println(chrono.getDureeTxt());
+        try
+        {
+            Thread.sleep(3000);
+        }
+        catch(InterruptedException ie)
+        {
+            System.out.println(ie.getMessage());
+        }
+        System.out.println(chrono.getDureeTxt());
+
     }
 
     
