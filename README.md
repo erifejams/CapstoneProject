@@ -17,3 +17,7 @@ task #2 operating mode : to actualise the bpm
     -> compute the average of the 5 last bpm registered 
     -> choose a music accordlingly to that average
 
+    test erife
+
+    nbiknjbh
+
