@@ -55,6 +55,11 @@ public class User{
         System.out.println("Average : " + averageLastBpm);
     }
 
+    //want to return an int/the number of the users bpm
+    public int sendBpm(){
+        return bpm;
+    }
+
     public void updateBpm()
     {
         int millis = 1500;
@@ -108,7 +113,5 @@ public class User{
         indexAverageBpm = indexAverageBpm%5;
 
     }
-
     
-
 }
