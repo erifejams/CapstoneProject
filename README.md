@@ -9,7 +9,7 @@ Lazlo & Erif & Charlotte
 - #2 update the bpm : Done
 - #3 play a music : optional 
 - #4 read a file : Done
-- #5 change music as the user's bpm progresses : not started (Erife's task)
+- #5 change music as the user's bpm progresses : Done
 - #6 define a scenario for the final presentation : not started
 
 
