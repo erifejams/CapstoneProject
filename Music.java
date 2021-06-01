@@ -8,7 +8,6 @@ public class Music {
     
     // constructor
     public Music (String name, int bpm, String author)
-    
     {
         this.name = name;
         this.bpm = bpm;
@@ -52,5 +51,4 @@ public class Music {
         System.out.println("bpm : "+ bpm);
         System.out.println("author : "+ author);
     }
-    
 }

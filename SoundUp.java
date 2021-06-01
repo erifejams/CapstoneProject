@@ -32,7 +32,9 @@ public class SoundUp {
                 int bpmMusic = Integer.parseInt(tpm);
                 //System.out.println(bpmMusic);
                 Music music = new Music (nameMusic, bpmMusic, authorMusic);
+                System.out.println(music.toString());
                 musicArray.add(music);
+                System.out.println();
             }
             input.close();
         }
@@ -49,14 +51,11 @@ public class SoundUp {
         toPlayMusicBpm = charlotte.sendBpm();
         System.out.println("This is charlotte's bpm "  + toPlayMusicBpm);
         if (toPlayMusicBpm<100){
-            //get song from playlist at random
-            //get a song at random from the song list
-            //print out the name of the song list
             Random random = new Random();
             int index = random.nextInt(musicArray.size());
-            for(int i = 0; i < musicArray.size(); i++){
+            for(int i = 0; i <= musicArray.size(); i++){
                 if(i == index){
-                    System.out.println("this song is " + musicArray.get(i)); //TRYING TO SOLVE, right now it is giving me the location of the song, not the acc name
+                    System.out.println("this song is " +  musicArray.get(i).getName()); 
                 }
             }
         }
