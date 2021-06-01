@@ -8,9 +8,6 @@ import java.util.Random;
 
 public class SoundUp {
     public static void main(String[] args) throws FileNotFoundException{
-        //ERIFE: to get the bpm of the user, so i can use to detemine the song
-        int toPlayMusicBpm;
-
         User charlotte = new User ("Charlotte");
         //charlotte.displayBpm();
         // charlotte.updateBpm();
@@ -48,10 +45,30 @@ public class SoundUp {
         }
 
         //ERIFE
+        int toPlayMusicBpm;  //to get the bpm of the user, so i can use to detemine the song
         toPlayMusicBpm = charlotte.sendBpm();
+
+        
         System.out.println("This is charlotte's bpm "  + toPlayMusicBpm);
+        Random random = new Random();
+
         if (toPlayMusicBpm<100){
-            Random random = new Random();
+            int index = random.nextInt(musicArray.size());
+            for(int i = 0; i <= musicArray.size(); i++){
+                if(i == index){
+                    System.out.println("this song is " +  musicArray.get(i).getName()); 
+                }
+            }
+        }else if (toPlayMusicBpm>=100 && toPlayMusicBpm<140){
+            //pick at random from middle bpm list
+            int index = random.nextInt(musicArray.size());
+            for(int i = 0; i <= musicArray.size(); i++){
+                if(i == index){
+                    System.out.println("this song is " +  musicArray.get(i).getName()); 
+                }
+            }
+        }else if (toPlayMusicBpm>=140 && toPlayMusicBpm<223){
+            //pick at random from high bpm list
             int index = random.nextInt(musicArray.size());
             for(int i = 0; i <= musicArray.size(); i++){
                 if(i == index){
@@ -59,16 +76,6 @@ public class SoundUp {
                 }
             }
         }
-        /*
-        if (toPlayMusicBpm>=100 && toPlayMusicBpm<140)
-        {
-            //pick at random from middle bpm list
-        }
-        if (toPlayMusicBpm>=140 && toPlayMusicBpm<223)
-        {
-            //pick at random from high bpm list
-        }
-        */
 
         Chrono chrono = new Chrono();
         chrono.start(); // démarrage du chrono
