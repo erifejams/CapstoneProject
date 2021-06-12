@@ -6,20 +6,13 @@ public class Music {
     private String author;
     private final int timing = 20;
     
-    
     // constructor
     public Music (String name, int bpm, String author)
-    
     {
         this.name = name;
         this.bpm = bpm;
         this.author = author;
-    }
-    
-    // default constructor
-    public Music()
-    {
-        Music music = new Music("no name", 0, "no author");
+        
     }
     
     public void setName(String newName)
@@ -52,5 +45,10 @@ public class Music {
         return bpm;
     }
 
-    // test
+    public void displayMusic()
+    {
+        System.out.println("name : "+ name);
+        System.out.println("bpm : "+ bpm);
+        System.out.println("author : "+ author);
+    }
 }

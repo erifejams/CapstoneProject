@@ -7,6 +7,10 @@ import java.util.Random;
 public class User{
     private String name;
     private int bpm;
+    private int age;
+    private int indexAverageBpm=0;
+    private int averageLastBpm;
+    private int[] bpmMatrix = new int[5];
 
     public User (String name)
     {
@@ -29,24 +33,85 @@ public class User{
     }
 
     //udpates the bpm of the user as the race progresses
-    public int updateBpm()
+    public int updateBpmOneTime(int lowerBound, int upperBound)
     {
         Random random = new Random();
         int randomRateOfChange;
 
-        int lowerBound = -1;
-        int upperBound = 5;
+        //int lowerBound = -1;
+        //int upperBound = 5;
 
         randomRateOfChange = lowerBound +random.nextInt(upperBound - lowerBound); // generates a bpm 
         
-        return randomRateOfChange;
+        return bpm+randomRateOfChange;
     }
 
     public void displayBpm()
     {
         System.out.println("Bpm : " + bpm);
     }
+    public void displayAverage()
+    {
+        System.out.println("Average : " + averageLastBpm);
+    }
 
+    //want to return an int/the number of the users bpm
+    public int sendBpm(){
+        return bpm;
+    }
+
+    public void updateBpm()
+    {
+        int millis = 1500;
+        for (int i = 0; i< 20; i++)
+        {
+            try
+            {
+                Thread.sleep(millis);
+            }
+            catch(InterruptedException ie)
+            {
+                System.out.println(ie.getMessage());
+            }
+
+            if (bpm<100)
+            {
+                bpm = updateBpmOneTime(-1, 5);
+            }
+            if (bpm>=100 && bpm<140)
+            {
+                bpm = updateBpmOneTime(-1, 2);
+            }
+            if (bpm>=140 && bpm<223-age)
+            {
+                bpm = updateBpmOneTime(-1, 0);
+            }
+            
+            displayBpm();
+            updateAverageBpm(bpm);
+
+            if (i>5)
+            {
+                displayAverage();
+            }
+                
+        }
+    }
+
+    public void updateAverageBpm(int newBpm)
+    {
+        bpmMatrix[indexAverageBpm] = newBpm;
+
+        int sum=0;
+        for (int i= 0; i<5; i++)
+        {
+            sum += bpmMatrix[i];
+        }
+        averageLastBpm =(int) sum/5;
+
+        indexAverageBpm = indexAverageBpm+1;
+        indexAverageBpm = indexAverageBpm%5;
+
+    }
     
-
 }
